@@ -19,7 +19,7 @@ export default {
     methods: {
 
     },
-    mounted(){
+    created(){
         axios.get(this.store.baseUrl)
         .then((response)=>{
             console.log(response);
@@ -31,15 +31,13 @@ export default {
 </script>
 
 <template>
-    <h1>
-        Mia App
-    </h1>
 
     <AppHeader />
 
     <AppMain />
 
     <AppFooter />
+
 </template>
 
 <style lang="scss">
