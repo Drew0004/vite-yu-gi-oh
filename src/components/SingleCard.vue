@@ -7,6 +7,10 @@ export default {
     },
     props: {
         card: Object,
+        arch: { 
+            type: String,
+            default: 'Type not Defined'
+        }
     }
 }
 </script>
@@ -21,7 +25,7 @@ export default {
 
         <div class="text-center text-box pt-3 mb-3">
             <h3 class="fs-5">{{ card.name }}</h3>
-            <h5 class="fs-6">{{ card.archetype }}</h5>
+            <h5 class="fs-6">{{ arch }}</h5>
         </div>
 
     </div>
@@ -38,6 +42,11 @@ export default {
         .text-box{
             height: 150px;
             background-color: $bg_color;
+
+            h3{
+                color: white;
+                text-transform: uppercase;
+            }
         }
     }
 </style>

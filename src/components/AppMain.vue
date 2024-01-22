@@ -37,7 +37,7 @@ export default {
 
                     <div class="row">
                     
-                        <SingleCard v-for="(card, i) in store.cards" :key="i" :card="card"/>
+                        <SingleCard v-for="(card, i) in store.cards" :key="i" :card="card" :arch="card.archetype"/>
                             
                     </div>
                 </div>
