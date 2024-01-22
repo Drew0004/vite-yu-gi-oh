@@ -32,11 +32,13 @@ export default {
             <div class="bg-white">
                 <div class="container p-4">
                     <div class="col-12 bg-dark p-3">
-                        <h3 class="text-white fs-5">Found tot cards</h3>
+                        <h3 class="text-white fs-5">Found {{store.cards.length}} cards</h3>
                     </div>
 
-                    <div>
-                        <SingleCard v-for="(card, i) in store.cards" :card="card"/>
+                    <div class="row">
+                    
+                        <SingleCard v-for="(card, i) in store.cards" :key="i" :card="card"/>
+                            
                     </div>
                 </div>
 

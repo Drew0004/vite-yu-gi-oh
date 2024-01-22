@@ -12,20 +12,32 @@ export default {
 </script>
 
 <template>
-    <div>
-        <img :src="card.card_images[0].image_url" alt="">
+    
+    <div class="cards-container">
+
+        <div>
+            <img class="w-100" :src="card.card_images[0].image_url" :alt="card.name">
+        </div>
+
+        <div class="text-center text-box pt-3 mb-3">
+            <h3 class="fs-5">{{ card.name }}</h3>
+            <h5 class="fs-6">{{ card.archetype }}</h5>
+        </div>
+
     </div>
 
-    <div>
-        {{ card.name }}
-    </div>
-
-    <div>
-        {{ card.archetype }}
-    </div>
 </template>
 
 <style lang="scss" scoped>
     @use "../assets/scss/partials/variables.scss" as *;
     @use "../assets/scss/partials/mixins.scss" as *;
+
+    .cards-container{
+        width: calc(100% / 5);
+
+        .text-box{
+            height: 150px;
+            background-color: $bg_color;
+        }
+    }
 </style>
