@@ -6,5 +6,5 @@ export const store = reactive({
     baseUrlArcPath: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?language=pt&archetype=',
     cards: [],
     archetypes: [],
-    searchStatus: '',
+    searchStatus: '0',
 });

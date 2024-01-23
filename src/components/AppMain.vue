@@ -20,9 +20,24 @@ export default {
             let finalUrl = this.store.baseUrlArcPath + queryString;
 
             console.log(finalUrl);
+
+            if(this.store.searchStatus == 0){
+                finalUrl = this.store.baseUrl
+            }
+
+            if (this.store.searchStatus.length > 0){
+                
+                axios.get(finalUrl)
+                .then((response)=>{
+                this.store.cards = response.data.data;
+                
+                });
+            }
+
         }
     },
 }
+
 </script>
 
 <template>
@@ -32,16 +47,15 @@ export default {
         <div class="container">
             
             <div class="py-4">
-                <form @submit.prevent="getDataFromApi">
+                <form class="row" @submit.prevent="getDataFromApi()">
                     
                     <select v-model="store.searchStatus" class="form-select w-25" aria-label="Default select example">
+                        <option value="0">Random Archetype</option>
                         <!-- <option v-for="(arch, i) in store.archetypes" :value="i">{{ arch.archetype_name }}</option> -->
                         <SingleOption v-for="(arch, j) in store.archetypes" :key="j" :singleArch="arch"/>
                     </select>
 
-                    <button>
-                        genera
-                    </button>
+                    <button class="button-small ms-2 btn btn-secondary">Genera</button>
 
                 </form>
             </div>
@@ -74,5 +88,9 @@ export default {
 
     main{
         background-color: $bg_color;
+
+        .button-small{
+            width: 10%;
+        }
     }
 </style>
