@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-      <div class="loading">
+    <div class="loading">
         <img src="../../public/img/Spinner-1s-200px.gif" alt="loading..."/>
     </div>
 </template>

@@ -31,9 +31,17 @@ export default {
     mounted(){
         axios.get(this.store.baseUrl)
         .then((response)=>{
-            console.log(response);
+            // console.log('Dati Carte:',response);
             this.store.cards = response.data.data;
-            console.log(this.store.cards);
+            // console.log('Dati Carte:',this.store.cards);
+            
+        });
+
+        axios.get(this.store.urlArc)
+        .then((response)=>{
+            console.log('Archetipi Carte:',response);
+            this.store.archetypes = response.data;
+            console.log('Archetipi Carte:',this.store.archetypes);
             
         });
     },
