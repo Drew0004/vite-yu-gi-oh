@@ -21,10 +21,7 @@ export default {
             
             <div class="py-4">
                 <select class="form-select w-25" aria-label="Default select example">
-                    <option selected>Alien</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option v-for="(arch, i) in store.archetypes" :value="i">{{ arch.archetype_name }}</option>
                 </select>
             </div>
 
