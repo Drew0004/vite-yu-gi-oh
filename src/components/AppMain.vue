@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js';
 import SingleCard from './SingleCard.vue';
+import SingleOption from './SingleOption.vue';
 export default {
     data() {
         return {
@@ -8,7 +9,9 @@ export default {
         };
     },
     components: {
-        SingleCard
+        SingleCard,
+        SingleOption
+
     }
 }
 </script>
@@ -21,7 +24,8 @@ export default {
             
             <div class="py-4">
                 <select class="form-select w-25" aria-label="Default select example">
-                    <option v-for="(arch, i) in store.archetypes" :value="i">{{ arch.archetype_name }}</option>
+                    <!-- <option v-for="(arch, i) in store.archetypes" :value="i">{{ arch.archetype_name }}</option> -->
+                    <SingleOption v-for="(arch, j) in store.archetypes" :key="j" :singleArch="arch"/>
                 </select>
             </div>
 
