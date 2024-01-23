@@ -15,7 +15,7 @@ export default {
 
 <template>
     
-    <option value="">{{ singleArch.archetype_name }}</option>
+    <option :value="singleArch.archetype_name">{{ singleArch.archetype_name }}</option>
 
 </template>
 

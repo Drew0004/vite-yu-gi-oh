@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import { store } from '../store.js';
 import SingleCard from './SingleCard.vue';
 import SingleOption from './SingleOption.vue';
@@ -12,7 +13,15 @@ export default {
         SingleCard,
         SingleOption
 
-    }
+    },
+    methods:{
+        getDataFromApi(){
+            let queryString = this.store.searchStatus;
+            let finalUrl = this.store.baseUrlArcPath + queryString;
+
+            console.log(finalUrl);
+        }
+    },
 }
 </script>
 
@@ -23,10 +32,18 @@ export default {
         <div class="container">
             
             <div class="py-4">
-                <select class="form-select w-25" aria-label="Default select example">
-                    <!-- <option v-for="(arch, i) in store.archetypes" :value="i">{{ arch.archetype_name }}</option> -->
-                    <SingleOption v-for="(arch, j) in store.archetypes" :key="j" :singleArch="arch"/>
-                </select>
+                <form @submit.prevent="getDataFromApi">
+                    
+                    <select v-model="store.searchStatus" class="form-select w-25" aria-label="Default select example">
+                        <!-- <option v-for="(arch, i) in store.archetypes" :value="i">{{ arch.archetype_name }}</option> -->
+                        <SingleOption v-for="(arch, j) in store.archetypes" :key="j" :singleArch="arch"/>
+                    </select>
+
+                    <button>
+                        genera
+                    </button>
+
+                </form>
             </div>
 
             <!-- white box -->
