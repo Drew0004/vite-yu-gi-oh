@@ -22,12 +22,6 @@ export default {
     methods: {
 
     },
-    created(){
-        setTimeout(()=>{
-            this.loading = false;
-        }, 2000);
-        
-    },
     mounted(){
         axios.get(this.store.baseUrl)
         .then((response)=>{
@@ -35,6 +29,9 @@ export default {
             this.store.cards = response.data.data;
             // console.log('Dati Carte:',this.store.cards);
             
+        })
+        .finally(()=>{
+            this.loading = false;
         });
 
         axios.get(this.store.urlArc)
