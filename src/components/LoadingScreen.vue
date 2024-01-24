@@ -13,7 +13,7 @@ export default {
 
 <template>
     <div class="loading">
-        <img src="../../public/img/Spinner-1s-200px.gif" alt="loading..."/>
+        <img src="../../public/img/Spin-1s-200px.gif" alt="loading..."/>
     </div>
 </template>
 
@@ -29,5 +29,9 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        img{
+            width: 5%;
+        }
     }
 </style>
